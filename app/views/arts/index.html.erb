@@ -1,5 +1,5 @@
 <% content_for :title, "Arts" %>
-<div class="w-full">
+<div class="w-full min-h-[50vh]">
   <div id="arts" class="min-w-full divide-y divide-gray-200 space-y-5">
     <% if @arts.any? %>
       <% @arts.each do |art| %>
@@ -11,4 +11,5 @@
       <p class="text-center my-10">No art found.</p>
     <% end %>
   </div>
+  <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
 </div>

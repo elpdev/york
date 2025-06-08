@@ -25,6 +25,11 @@
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
+    <% if @pagy && @pagy.pages > 1 %>
+      <section class="flex justify-center">
+        <%== pagy_nav(@pagy) %>
+      </section>
+    <% end %>
     <%= render Footer::Component.new %>
   </body>
 </html>
