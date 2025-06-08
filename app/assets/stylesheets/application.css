@@ -8,3 +8,11 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+* {
+  font-family: "Helvetica", sans-serif;
+  /* font-family: "Oswald", sans-serif; */
+  font-optical-sizing: auto;
+  font-weight: 400;
+  text-transform: uppercase;
+}
