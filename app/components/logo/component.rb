@@ -1,5 +1,7 @@
 class Logo::Component < ViewComponent::Base
-  def initialize(text: "Jessica York")
-    @text = text
+  attr_reader :footer
+
+  def initialize(footer: false)
+    @footer = footer
   end
 end
