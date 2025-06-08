@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :arts
   resource :contact, only: [:show, :create], controller: "contact"
   # Defines the root path route ("/")
-  root "arts#index"
+  root "home#show"
 end

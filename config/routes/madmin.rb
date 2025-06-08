@@ -1,5 +1,6 @@
 # Below are the routes for madmin
 namespace :madmin, path: "admin" do
+  resources :home_pages
   resources :contacts
   namespace :active_storage do
     resources :attachments
