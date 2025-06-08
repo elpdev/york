@@ -15,4 +15,10 @@ class ContactController < ApplicationController
       redirect_back fallback_location: contact_path, alert: "There was an error sending your message. Please try again."
     end
   end
+
+  private
+
+  def contact_params
+    params.require(:contact).permit(:name, :email, :body)
+  end
 end
