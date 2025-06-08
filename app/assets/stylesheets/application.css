@@ -9,7 +9,7 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
-* {
+*:not(input, textarea) {
   font-family: "Helvetica", sans-serif;
   /* font-family: "Oswald", sans-serif; */
   font-optical-sizing: auto;
