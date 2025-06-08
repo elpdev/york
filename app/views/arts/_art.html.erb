@@ -3,8 +3,15 @@
     <%= link_to art do %>
       <%= image_tag art.image, class: "" %>
     <% end %>
-    <div class="text-center">
+    <div class="text-center text-4xl">
       <%= art.name %>
     </div>
   </div>
+  <% if action_name == "show" %>
+    <div class="flex flex-wrap gap-4 w-full justify-center items-center">
+      <% art.child_images.each do |image| %>
+        <%= image_tag image, class: "w-auto" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

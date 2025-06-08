@@ -1,11 +1,13 @@
 <footer class="hidden md:block bg-white rounded-lg m-4">
   <div class="w-full mx-auto max-w-screen-xl p-4 flex items-center justify-between">
-    <span class="text-sm text-gray-500 sm:text-center">
-      Jessica York  Art © <%= Time.now.year %>
+    <span class="text-sm text-black sm:text-center">
     </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
-      <li>
-        <%= link_to "/" do %>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-black sm:mt-0">
+      <li class="flex items-center">
+        <%= link_to "/", class: "flex items-center" do %>
+          <span class="text-xs">
+            All rights reserved
+          </span>
           <%= render Logo::Component.new(footer: true) %>
         <% end %>
       </li>
