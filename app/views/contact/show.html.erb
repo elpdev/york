@@ -1,11 +1,11 @@
 <section class="bg-white w-full">
-  <%= image_tag "skies.webp", class: "w-full" %>
+  <%= image_tag "skies.jpeg", class: "w-full" %>
   <div class="py-16 px-4 mx-auto  max-w-screen-xl sm:py-24 lg:px-6 ">
     <div class="flex flex-col items-center justify-center w-full">
       <%= form_with model: @contact, url: contact_path, method: :post do |form| %>
-        <%= form.text_field :name, placeholder: "NAME", class: "w-full p-2 border border-black rounded-md my-4 text-center"  %>
-        <%= form.email_field :email, placeholder: "EMAIL", class: "w-full p-2 border border-black rounded-md my-4 text-center" %>
-        <%= form.text_area :body, placeholder: "", class: "w-full p-2 border border-black rounded-md my-4 text-center" %>
+        <%= form.text_field :name, placeholder: "NAME", class: "w-full p-2 border border-black rounded-md my-4 text-center placeholder:text-black"  %>
+        <%= form.email_field :email, placeholder: "EMAIL", class: "w-full p-2 border border-black rounded-md my-4 text-center placeholder:text-black" %>
+        <%= form.text_area :body, placeholder: "", class: "w-full p-2 border border-black rounded-md my-4 text-center placeholder:text-black" %>
         <div class="flex justify-center items-center">
           <%= form.submit "SEND", class: "text-black text-xl bg-white border border-black hover:bg-gray-800 hover:text-white cursor-pointer focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" %>
         </div>
