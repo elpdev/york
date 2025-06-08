@@ -39,15 +39,17 @@
   </button>
   <!-- Indicators -->
   <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2" data-carousel-target="indicators">
-    <% HomePage.last.images.each_with_index do |image, index| %>
-      <button type="button"
+    <% if HomePage.last.present? && HomePage.last.images.any? %>
+      <% HomePage.last.images.each_with_index do |image, index| %>
+        <button type="button"
               class="w-3 h-3 rounded-full <%= index == 0 ? 'bg-white' : 'bg-white/50' %> hover:bg-white transition-colors duration-200"
               data-action="click->carousel#goToSlide"
-        data-slide-index="<%= index %>"
-        data-carousel-target="indicator"
-        aria-current="<%= index == 0 ? 'true' : 'false' %>"
-        aria-label="Slide <%= index + 1 %>">
-      </button>
+          data-slide-index="<%= index %>"
+          data-carousel-target="indicator"
+          aria-current="<%= index == 0 ? 'true' : 'false' %>"
+          aria-label="Slide <%= index + 1 %>">
+        </button>
+      <% end %>
     <% end %>
   </div>
 </section>
