@@ -2,6 +2,7 @@ class UserResource < Madmin::Resource
   # Attributes
   attribute :id, form: false
   attribute :email_address
+  attribute :admin
   attribute :created_at, form: false
   attribute :updated_at, form: false
   attribute :password, index: false, show: false
