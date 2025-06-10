@@ -2,13 +2,13 @@
          class="relative w-full max-w-4xl mx-auto"
          data-action="mouseenter->carousel#pauseAutoPlay mouseleave->carousel#resumeAutoPlay">
   <!-- Carousel wrapper -->
-  <div class="relative h-[800px] overflow-hidden rounded-lg bg-gray-100" data-carousel-target="container">
+  <div class="relative h-[25vh] md:h-[90vh] overflow-hidden rounded-lg" data-carousel-target="container">
     <% if HomePage.last.present? && HomePage.last.images.any? %>
       <% HomePage.last.images.each_with_index do |image, index| %>
         <div class="carousel-slide duration-800 ease-in-out absolute inset-0 transition-transform transform <%= index == 0 ? 'translate-x-0' : 'translate-x-full' %>"
            data-carousel-target="slide"
            data-slide-index="<%= index %>">
-          <%= image_tag image, class: "w-full h-full object-cover", alt: "Carousel image #{index + 1}" %>
+          <%= image_tag image, class: "w-full h-full object-cover max-h-[60vh]", alt: "Carousel image #{index + 1}" %>
         </div>
       <% end %>
     <% end %>
