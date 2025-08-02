@@ -1,7 +1,7 @@
 <section data-controller="carousel"
          class="relative w-full max-w-4xl mx-auto"
          data-action="mouseenter->carousel#pauseAutoPlay mouseleave->carousel#resumeAutoPlay">
-  <!-- Carousel wrapper -->
+  <!-- Carousel wrapper ----->
   <div class="relative h-[25vh] md:h-[90vh] overflow-hidden rounded-lg" data-carousel-target="container">
     <% if HomePage.last.present? && HomePage.last.images.any? %>
       <% HomePage.last.images.each_with_index do |image, index| %>
