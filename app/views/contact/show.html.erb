@@ -5,6 +5,7 @@
   <div class="contact-container">
     <section class="contact-form-section">
       <%= form_with model: @contact, url: contact_path, method: :post, class: "contact-form" do |form| %>
+        <%= f.invisible_captcha :last_name %>
         <div class="form-field">
           <%= form.text_field :name, placeholder: "Name", class: "form-input", required: true %>
         </div>

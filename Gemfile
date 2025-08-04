@@ -63,3 +63,5 @@ gem "madmin"
 gem "view_component"
 gem "aws-sdk-s3"
 gem "pagy"
+
+gem "invisible_captcha"
