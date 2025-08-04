@@ -680,3 +680,43 @@ body.menu-open {
 .instagram-link:hover .instagram-icon {
   transform: scale(1.1);
 }
+
+/* Alert/Notice Styles */
+.alert {
+  position: fixed;
+  top: 5rem; /* Position below the fixed navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 32rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  z-index: 50;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  animation: slideDown 0.3s ease-out;
+}
+
+.alert-notice {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #3b82f6;
+}
+
+.alert-error {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #ef4444;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

@@ -1,11 +1,11 @@
-<div class="contact-page pt-20">
+<div class="contact-page pt-32">
   <div class="contact-hero">
     <%= image_tag "skies.jpeg", class: "contact-hero-image", alt: "Contact header image" %>
   </div>
   <div class="contact-container">
     <section class="contact-form-section">
       <%= form_with model: @contact, url: contact_path, method: :post, class: "contact-form" do |form| %>
-        <%= f.invisible_captcha :last_name %>
+        <%= form.invisible_captcha :last_name %>
         <div class="form-field">
           <%= form.text_field :name, placeholder: "Name", class: "form-input", required: true %>
         </div>

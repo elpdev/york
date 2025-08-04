@@ -1,5 +1,5 @@
 class ContactController < ApplicationController
-  invisible_captcha only: [:create, :show], honeypot: :last_name
+  invisible_captcha only: [:create], honeypot: :last_name
 
   before_action :resume_session
   allow_unauthenticated_access
