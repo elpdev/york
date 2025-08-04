@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   draw :madmin
 
-  resources :arts
+  resources :arts, path: :work
   resource :contact, only: [:show, :create], controller: "contact"
   # Defines the root path route ("/")
   root "home#show"

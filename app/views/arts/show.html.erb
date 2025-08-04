@@ -1,1 +1,8 @@
-<%= render @art %>
+<div class="art-show-container">
+  <nav class="art-nav">
+    <%= link_to "← Back to Arts", arts_path, class: "back-link" %>
+  </nav>
+  <div class="art-show-content">
+    <%= render @art %>
+  </div>
+</div>

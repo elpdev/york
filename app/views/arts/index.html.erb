@@ -1,15 +1,14 @@
 <% content_for :title, "Arts" %>
-<div class="w-full ">
-  <div id="arts" class="min-w-full ">
-    <% if @arts.any? %>
+<div class="arts-gallery">
+  <% if @arts.any? %>
+    <div class="arts-grid">
       <% @arts.each do |art| %>
-        <div class="flex flex-col sm:flex-row justify-between items-center pb-5 sm:pb-0 mb-32">
+        <div class="art-item">
           <%= render art %>
         </div>
       <% end %>
-    <% else %>
-      <p class="text-center my-10">No art found.</p>
-    <% end %>
-  </div>
-  <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+    </div>
+  <% else %>
+    <p class="no-arts-message">No art found.</p>
+  <% end %>
 </div>

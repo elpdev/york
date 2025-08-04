@@ -1,24 +1,26 @@
-<div id="<%= dom_id art %>" class="w-full my-5 space-y-5 flex flex-col items-center w-full justify-center my-5">
-  <div>
-    <% if action_name == "show" %>
-      <div class="text-center text-4xl">
-        <%= art.name %>
+<div id="<%= dom_id art %>" class="art-piece">
+  <% if action_name == "index" %>
+    <%= link_to art, class: "art-link" do %>
+      <div class="art-image-wrapper">
+        <%= image_tag art.image, class: "art-image", loading: "lazy" %>
       </div>
+      <h2 class="art-title"><%= art.name %></h2>
     <% end %>
-    <%= link_to art do %>
-      <%= image_tag art.image, class: "" %>
-    <% end %>
-    <% if action_name == "index" %>
-      <div class="text-center text-4xl">
-        <%= art.name %>
+  <% elsif action_name == "show" %>
+    <div class="art-main">
+      <h1 class="art-title-show"><%= art.name %></h1>
+      <div class="art-image-wrapper-show">
+        <%= image_tag art.image, class: "art-image-show" %>
       </div>
-    <% end %>
-  </div>
-  <% if action_name == "show" %>
-    <div class="flex flex-wrap gap-4 w-full justify-center items-center">
-      <% art.child_images.each do |image| %>
-        <%= image_tag image, class: "w-auto" %>
-      <% end %>
     </div>
+    <% if art.child_images.any? %>
+      <div class="art-child-images">
+        <% art.child_images.each do |image| %>
+          <div class="child-image-wrapper">
+            <%= image_tag image, class: "child-image", loading: "lazy" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
