@@ -2,8 +2,8 @@ class ContactResource < Madmin::Resource
   # Attributes
   attribute :id, form: false
   attribute :name
-  attribute :email
-  attribute :body
+  attribute :email, index: true
+  attribute :body, index: true
   attribute :created_at, form: false
   attribute :updated_at, form: false
 
