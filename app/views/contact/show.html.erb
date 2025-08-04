@@ -1,24 +1,38 @@
-<section class="bg-white w-full">
-  <%= image_tag "skies.jpeg", class: "w-full" %>
-  <div class="py-16 px-4 mx-auto  max-w-screen-xl sm:py-24 lg:px-6 ">
-    <div class="flex flex-col items-center justify-center w-full">
-      <%= form_with model: @contact, url: contact_path, method: :post do |form| %>
-        <%= form.text_field :name, placeholder: "NAME", class: "w-full p-2 border border-black rounded-md my-4 text-center placeholder:text-black"  %>
-        <%= form.email_field :email, placeholder: "EMAIL", class: "w-full p-2 border border-black rounded-md my-4 text-center placeholder:text-black" %>
-        <%= form.text_area :body, placeholder: "", class: "w-full p-2 border border-black rounded-md my-4 text-center placeholder:text-black" %>
-        <div class="flex justify-center items-center">
-          <%= form.submit "SEND", class: "text-black text-xl bg-white border border-black hover:bg-gray-800 hover:text-white cursor-pointer focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" %>
+<div class="contact-page">
+  <div class="contact-hero">
+    <%= image_tag "skies.jpeg", class: "contact-hero-image", alt: "Contact header image" %>
+  </div>
+  
+  <div class="contact-container">
+    <section class="contact-form-section">
+      <%= form_with model: @contact, url: contact_path, method: :post, class: "contact-form" do |form| %>
+        <div class="form-field">
+          <%= form.text_field :name, placeholder: "Name", class: "form-input", required: true %>
+        </div>
+        <div class="form-field">
+          <%= form.email_field :email, placeholder: "Email", class: "form-input", required: true %>
+        </div>
+        <div class="form-field">
+          <%= form.text_area :body, placeholder: "Message", class: "form-textarea", rows: 6, required: true %>
+        </div>
+        <div class="form-submit">
+          <%= form.submit "Send", class: "submit-button" %>
         </div>
       <% end %>
-    </div>
-    <div class="flex flex-col items-center justify-center w-full mt-20">
-      <%= link_to "jyorkart@gmail.com", "mailto:jyorkart@gmail.com", class: "text-black", target: "_blank" %>
-    </div>
-    <div class="flex flex-col items-center justify-center w-full mt-20">
-      <%= link_to "https://www.instagram.com/jyorkart/", class: "text-black", target: "_blank" do %>
-        <svg class="w-12 h-12 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd"/>
-        </svg>
-      <% end %>
-    </div>
-  </section>
+    </section>
+
+    <section class="contact-info">
+      <div class="contact-email">
+        <%= link_to "jyorkart@gmail.com", "mailto:jyorkart@gmail.com", class: "email-link" %>
+      </div>
+      
+      <div class="contact-social">
+        <%= link_to "https://www.instagram.com/jyorkart/", class: "instagram-link", target: "_blank", rel: "noopener" do %>
+          <svg class="instagram-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd"/>
+          </svg>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</div>
