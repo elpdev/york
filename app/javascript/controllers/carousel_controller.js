@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="carousel"
 export default class extends Controller {
-  static targets = ["slide", "container"];
+  static targets = ["slide", "container", "indicators"];
 
   connect() {
     this.currentIndex = 0;
@@ -10,8 +10,12 @@ export default class extends Controller {
     this.autoPlay = true;
     this.autoPlayInterval = 4000; // 4 seconds
 
+    console.log("Carousel connected");
+    console.log("Total slides:", this.totalSlides);
+
     if (this.totalSlides > 0) {
       this.startAutoPlay();
+      this.updateIndicators();
     }
   }
 
@@ -24,23 +28,43 @@ export default class extends Controller {
     this.showSlide(this.currentIndex);
   }
 
+  goToPrevSlide() {
+    this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+    this.showSlide(this.currentIndex);
+  }
+
+  goToSlide(event) {
+    const index = parseInt(event.currentTarget.dataset.slideIndex);
+    this.showSlide(index);
+  }
+
   showSlide(index) {
+    console.log("Showing slide:", index);
     this.currentIndex = index;
 
     // Update slides
     this.slideTargets.forEach((slide, i) => {
-      slide.classList.remove(
-        "translate-x-0",
-        "translate-x-full",
-        "translate-x-[-100%]"
-      );
-
+      slide.classList.remove("active", "prev");
+      
       if (i === index) {
-        slide.classList.add("translate-x-0");
+        slide.classList.add("active");
       } else if (i < index) {
-        slide.classList.add("translate-x-[-100%]");
+        slide.classList.add("prev");
+      }
+    });
+
+    this.updateIndicators();
+  }
+
+  updateIndicators() {
+    if (!this.hasIndicatorsTarget) return;
+    
+    const indicators = this.indicatorsTarget.querySelectorAll(".carousel-indicator");
+    indicators.forEach((indicator, i) => {
+      if (i === this.currentIndex) {
+        indicator.classList.add("active");
       } else {
-        slide.classList.add("translate-x-full");
+        indicator.classList.remove("active");
       }
     });
   }
@@ -49,7 +73,6 @@ export default class extends Controller {
     if (this.autoPlay && this.totalSlides > 1) {
       this.autoPlayTimer = setInterval(() => {
         this.goToNextSlide();
-        console.log("auto play");
       }, this.autoPlayInterval);
     }
   }
