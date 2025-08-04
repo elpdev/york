@@ -1,7 +1,7 @@
 <% content_for :title, "Arts" %>
 <div class="arts-gallery">
   <% if @arts.any? %>
-    <div class="arts-grid">
+    <div class="arts-grid py-20">
       <% @arts.each do |art| %>
         <div class="art-item">
           <%= render art %>
