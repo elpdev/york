@@ -1,8 +1,7 @@
-<div class="contact-page">
+<div class="contact-page pt-20">
   <div class="contact-hero">
     <%= image_tag "skies.jpeg", class: "contact-hero-image", alt: "Contact header image" %>
   </div>
-  
   <div class="contact-container">
     <section class="contact-form-section">
       <%= form_with model: @contact, url: contact_path, method: :post, class: "contact-form" do |form| %>
@@ -20,12 +19,10 @@
         </div>
       <% end %>
     </section>
-
     <section class="contact-info">
       <div class="contact-email">
         <%= link_to "jyorkart@gmail.com", "mailto:jyorkart@gmail.com", class: "email-link" %>
       </div>
-      
       <div class="contact-social">
         <%= link_to "https://www.instagram.com/jyorkart/", class: "instagram-link", target: "_blank", rel: "noopener" do %>
           <svg class="instagram-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
