@@ -10,10 +10,15 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+
+  # Serve sitemaps from tmp directory - handle both .xml and .xml.gz
+  get "/sitemaps/:filename", to: "sitemaps#show", constraints: {filename: /.*/}
+
   draw :madmin
 
   resources :arts, path: :work
   resource :contact, only: [:show, :create], controller: "contact"
+
   # Defines the root path route ("/")
   root "home#show"
 end

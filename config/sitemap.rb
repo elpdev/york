@@ -1,6 +1,6 @@
 # Sitemap configuration for Jessica York Art Portfolio
 SitemapGenerator::Sitemap.default_host = "https://jessicayorkart.com"
-SitemapGenerator::Sitemap.public_path = "public/"
+SitemapGenerator::Sitemap.public_path = "tmp/"
 SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/"
 SitemapGenerator::Sitemap.compress = true
 

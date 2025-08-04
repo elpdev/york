@@ -1,9 +1,4 @@
-production:
-  sitemap_generation:
-    command: "system('bin/rails sitemap:refresh')"
-    queue: background
-    schedule: at 3am every day
-
+# production:
 # Other recurring job examples:
 #   periodic_cleanup:
 #     class: CleanSoftDeletedRecordsJob
