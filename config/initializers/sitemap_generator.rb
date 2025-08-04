@@ -1,8 +1,9 @@
 # Sitemap Generator Configuration
 # This ensures the sitemap generator works properly with Rails
 
-# Create sitemaps directory if it doesn't exist
-FileUtils.mkdir_p(Rails.root.join('public', 'sitemaps'))
+# Create sitemaps directory if it doesn't exist with proper permissions
+sitemaps_dir = Rails.root.join('public', 'sitemaps')
+FileUtils.mkdir_p(sitemaps_dir, mode: 0755) unless File.directory?(sitemaps_dir)
 
 # Optional: Configure search engine pinging
 # Uncomment the lines below to ping search engines when sitemap is generated

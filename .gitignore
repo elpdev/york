@@ -42,3 +42,6 @@
 
 
 .DS_Store
+
+# Ignore generated sitemap files (configuration files are tracked)
+/public/sitemaps/
