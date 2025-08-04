@@ -1,17 +1,29 @@
 module Madmin
   class ApplicationController < Madmin::BaseController
-    include Authentication
+    # include Authentication
 
+    before_action :require_authentication
     before_action :authenticate_admin_user
 
     def authenticate_admin_user
-      # TODO: Add your authentication logic here
+      redirect_to "/", alert: "Not authorized." unless Current.user.admin?
+    end
 
-      # For example, with Rails 8 authentication
-      redirect_to "/", alert: "Not authorized." unless authenticated? && Current.user.admin?
+    def require_authentication
+      resume_session || request_authentication
+    end
 
-      # Or with Devise
-      # redirect_to "/", alert: "Not authorized." unless current_user&.admin?
+    def resume_session
+      Current.session ||= find_session_by_cookie
+    end
+
+    def find_session_by_cookie
+      Session.find_by(id: cookies.signed[:session_id]) if cookies.signed[:session_id]
+    end
+
+    def request_authentication
+      session[:return_to_after_authenticating] = request.url
+      redirect_to "/session/new"
     end
   end
 end
