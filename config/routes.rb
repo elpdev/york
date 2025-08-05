@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   draw :madmin
 
   resources :arts, path: :work
+  resource :bio, only: [:show]
   resource :contact, only: [:show, :create], controller: "contact"
 
   # Defines the root path route ("/")
