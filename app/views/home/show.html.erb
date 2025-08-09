@@ -4,31 +4,29 @@
            data-action="mouseenter->carousel#pauseAutoPlay mouseleave->carousel#resumeAutoPlay">
     <!-- Carousel wrapper -->
     <div class="carousel-wrapper" data-carousel-target="container">
-      <% if HomePage.last.present? && HomePage.last.images.any? %>
-        <% HomePage.last.images.each_with_index do |image, index| %>
-          <div class="carousel-slide <%= index == 0 ? 'active' : '' %>"
+      <% Image.ordered.each_with_index do |image, index| %>
+        <div class="carousel-slide <%= index == 0 ? 'active' : '' %>"
                data-carousel-target="slide"
                data-slide-index="<%= index %>">
-            <%= image_tag image, alt: "Carousel image #{index + 1}" %>
-          </div>
-        <% end %>
-        <!-- Navigation buttons -->
-        <button class="carousel-nav-button prev" data-action="click->carousel#goToPrevSlide" aria-label="Previous slide">
-          &#8249;
-        </button>
-        <button class="carousel-nav-button next" data-action="click->carousel#goToNextSlide" aria-label="Next slide">
-          &#8250;
-        </button>
-        <!-- Indicators -->
-        <div class="carousel-indicators" data-carousel-target="indicators">
-          <% HomePage.last.images.each_with_index do |image, index| %>
-            <button class="carousel-indicator <%= index == 0 ? 'active' : '' %>"
-                    data-action="click->carousel#goToSlide"
-              data-slide-index="<%= index %>"
-              aria-label="Go to slide <%= index + 1 %>"></button>
-          <% end %>
+          <%= image_tag image.image, alt: "Carousel image #{index + 1}" %>
         </div>
       <% end %>
+      <!-- Navigation buttons -->
+      <button class="carousel-nav-button prev" data-action="click->carousel#goToPrevSlide" aria-label="Previous slide">
+        &#8249;
+      </button>
+      <button class="carousel-nav-button next" data-action="click->carousel#goToNextSlide" aria-label="Next slide">
+        &#8250;
+      </button>
+      <!-- Indicators -->
+      <div class="carousel-indicators" data-carousel-target="indicators">
+        <% Image.ordered.each_with_index do |image, index| %>
+          <button class="carousel-indicator <%= index == 0 ? 'active' : '' %>"
+                    data-action="click->carousel#goToSlide"
+            data-slide-index="<%= index %>"
+            aria-label="Go to slide <%= index + 1 %>"></button>
+        <% end %>
+      </div>
     </div>
   </section>
 </div>

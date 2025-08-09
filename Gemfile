@@ -66,3 +66,4 @@ gem "pagy"
 
 gem "invisible_captcha"
 gem "sitemap_generator"
+gem "acts_as_list"

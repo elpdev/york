@@ -1,5 +1,6 @@
 # Below are the routes for madmin
 namespace :madmin, path: "admin" do
+  resources :images
   resources :bios
   resources :home_pages
   resources :contacts
