@@ -2,6 +2,7 @@ class ArtResource < Madmin::Resource
   # Attributes
   attribute :id, form: false, index: false
   attribute :name, index: true
+  attribute :slug, index: true
   attribute :position, index: true
   attribute :image, index: false
   attribute :child_images, index: false

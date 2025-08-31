@@ -17,7 +17,7 @@ class ArtsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_art
-    @art = Art.find(params.expect(:id))
+    @art = Art.friendly.find(params.expect(:id))
   rescue ActiveRecord::RecordNotFound
     redirect_to arts_path, alert: "Art not found"
   end
