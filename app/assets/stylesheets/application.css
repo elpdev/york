@@ -211,13 +211,26 @@
   overflow: hidden;
   background-color: #f9fafb;
   border-radius: 0.125rem;
+  height: 263px;
+}
+
+@media (min-width: 768px) {
+  .art-image-wrapper {
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .art-image-wrapper {
+    height: 500px;
+  }
 }
 
 .art-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  max-width: 100%;
+  object-fit: cover;
   transition: opacity 300ms ease;
 }
 
