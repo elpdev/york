@@ -6,7 +6,7 @@ class ArtsController < ApplicationController
 
   # GET /arts or /arts.json
   def index
-    @pagy, @arts = pagy(Art.ordered)
+    @pagy, @arts = pagy(Art.ordered, limit: 50)
   end
 
   # GET /arts/1 or /arts/1.json
