@@ -26,7 +26,7 @@
     </main>
     <% if @pagy && @pagy.pages > 1 %>
       <section class="flex justify-center">
-        <%== pagy_nav(@pagy) %>
+        <%== @pagy.series_nav %>
       </section>
     <% end %>
     <%= render Footer::Component.new %>
