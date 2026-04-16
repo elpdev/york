@@ -2,7 +2,7 @@
 service: york
 
 # Name of the container image.
-image: impostor/york
+image: elpdev/york
 
 # Deploy to these servers.
 servers:
@@ -24,7 +24,10 @@ proxy:
 # Credentials for your image host.
 registry:
   # Alternatives: hub.docker.com / registry.digitalocean.com / ghcr.io / ...
-  server: localhost:5555
+  server: ghcr.io
+  username: elpdev
+  password:
+    - KAMAL_REGISTRY_PASSWORD
 
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 env:
