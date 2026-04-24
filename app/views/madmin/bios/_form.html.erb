@@ -1,0 +1,26 @@
+<%= form_with model: [:madmin, record], url: (record.persisted? ? resource.show_path(record) : resource.index_path), local: true do |form| %>
+  <% if form.object.errors.any? %>
+    <div class="alert alert-danger">
+      <div class="">There was <%= pluralize form.object.errors.full_messages.count, "error" %> with your submission:</div>
+
+      <ul>
+        <% form.object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-input" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :content %>
+    <%= form.rich_text_area :content, class: "form-input" %>
+  </div>
+
+  <%= form.submit class: "btn btn-primary" %>
+  <%= link_to "Cancel", (record.persisted? ? resource.show_path(record) : resource.index_path), class: "btn" %>
+<% end %>
