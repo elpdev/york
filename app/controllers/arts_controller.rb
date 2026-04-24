@@ -1,0 +1,24 @@
+class ArtsController < ApplicationController
+  allow_unauthenticated_access
+
+  before_action :resume_session
+  before_action :set_art, only: %i[show]
+
+  # GET /arts or /arts.json
+  def index
+    @pagy, @arts = pagy(Art.ordered, limit: 50)
+  end
+
+  # GET /arts/1 or /arts/1.json
+  def show
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_art
+    @art = Art.friendly.find(params.expect(:id))
+  rescue ActiveRecord::RecordNotFound
+    redirect_to arts_path, alert: "Art not found"
+  end
+end

@@ -1,0 +1,26 @@
+<div id="<%= dom_id art %>" class="art-piece">
+  <% if action_name == "index" %>
+    <%= link_to art, class: "art-link" do %>
+      <div class="art-image-wrapper">
+        <%= image_tag art.image, class: "art-image", loading: "lazy" %>
+      </div>
+      <h2 class="art-title"><%= art.name %></h2>
+    <% end %>
+  <% elsif action_name == "show" %>
+    <div class="art-main">
+      <h1 class="art-title-show"><%= art.name %></h1>
+      <div class="art-image-wrapper-show">
+        <%= image_tag art.image, class: "art-image-show" %>
+      </div>
+    </div>
+    <% if art.child_images.any? %>
+      <div class="art-child-images">
+        <% art.child_images.each do |image| %>
+          <div class="child-image-wrapper">
+            <%= image_tag image, class: "child-image", loading: "lazy" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

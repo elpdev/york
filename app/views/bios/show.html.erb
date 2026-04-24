@@ -1,0 +1,20 @@
+<div class="bio-page pt-32">
+  <div class="bio-container">
+    <div class="bio-portrait-wrap">
+      <%= image_tag "yorkie.jpeg", alt: "Jessica York portrait", class: "bio-portrait" %>
+    </div>
+
+    <% if Bio.last.present? %>
+      <% bio = Bio.last %>
+      <% if bio.content.present? %>
+        <div class="bio-content">
+          <%= bio.content %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="bio-placeholder">
+        <p>Bio content coming soon...</p>
+      </div>
+    <% end %>
+  </div>
+</div>

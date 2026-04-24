@@ -1,0 +1,20 @@
+# Robots.txt for Jessica York Art Portfolio
+# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+
+User-agent: *
+Allow: /
+Allow: /work
+Allow: /work/*
+Allow: /contact
+
+# Disallow admin areas
+Disallow: /admin
+Disallow: /admin/*
+
+# Allow access to assets
+Allow: /assets/
+Allow: /images/
+Allow: /sitemaps/
+
+# Sitemap location
+Sitemap: https://jessicayorkart.com/sitemaps/sitemap.xml.gz

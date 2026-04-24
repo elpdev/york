@@ -1,0 +1,32 @@
+<nav class="navbar" data-controller="navigation">
+  <div class="navbar-container">
+    <%= link_to root_path, class: "navbar-logo" do %>
+      <%= render Logo::Component.new %>
+    <% end %>
+    
+    <button class="hamburger" data-navigation-target="hamburger" data-action="click->navigation#toggle" aria-label="Toggle menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    
+    <div class="nav-menu" data-navigation-target="menu">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <%= link_to "Work", arts_path, class: "nav-link", data: { action: "click->navigation#close" } %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Bio", bio_path, class: "nav-link", data: { action: "click->navigation#close" } %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Contact", contact_path, class: "nav-link", data: { action: "click->navigation#close" } %>
+        </li>
+        <% if Current.user&.admin? %>
+          <li class="nav-item">
+            <%= link_to "Admin", madmin_root_path, class: "nav-link", data: { action: "click->navigation#close" } %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

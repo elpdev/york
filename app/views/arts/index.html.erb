@@ -1,0 +1,14 @@
+<% content_for :title, "Arts" %>
+<div class="arts-gallery">
+  <% if @arts.any? %>
+    <div class="arts-grid py-20">
+      <% @arts.each do |art| %>
+        <div class="art-item">
+          <%= render art %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="no-arts-message">No art found.</p>
+  <% end %>
+</div>
