@@ -11,4 +11,3 @@ FileUtils.mkdir_p(sitemaps_dir, mode: 0o755) unless File.directory?(sitemaps_dir
 #   google: "http://www.google.com/webmasters/tools/ping?sitemap=%s",
 #   bing: "http://www.bing.com/ping?sitemap=%s"
 # }
-
