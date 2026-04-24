@@ -3,20 +3,19 @@ class SitemapsController < ApplicationController
   allow_unauthenticated_access
 
   def show
-    filename = params[:filename]
+    filename = params[:filename].to_s
 
     # Debug logging
     Rails.logger.info "Sitemap request: filename=#{filename}"
 
-    # Security: only allow expected sitemap filenames
     unless filename.match?(/\Asitemap\d*\.xml(\.gz)?\z/)
       Rails.logger.info "Filename rejected by regex: #{filename}"
       head :not_found
       return
     end
 
-    # Use the filename as provided (should include full extension now)
-    file_path = Rails.root.join("tmp", "sitemaps", filename)
+    sitemaps_dir = Rails.root.join("tmp", "sitemaps")
+    file_path = sitemaps_dir.children.find { |path| path.file? && path.basename.to_s == filename }
     Rails.logger.info "Looking for file at: #{file_path}"
     Rails.logger.info "File exists: #{file_path && File.exist?(file_path)}"
 
@@ -25,7 +24,7 @@ class SitemapsController < ApplicationController
       send_file file_path,
         type: "application/xml",
         disposition: "inline",
-        filename: filename
+        filename: file_path.basename.to_s
     else
       Rails.logger.info "File not found: #{file_path}"
       head :not_found

@@ -58,4 +58,3 @@ end
 # Optional: Ping search engines after sitemap generation
 # Uncomment to automatically notify search engines of sitemap updates
 # SitemapGenerator::Sitemap.ping_search_engines
-
