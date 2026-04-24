@@ -1,5 +1,9 @@
 <div class="bio-page pt-32">
   <div class="bio-container">
+    <div class="bio-portrait-wrap">
+      <%= image_tag "yorkie.jpeg", alt: "Jessica York portrait", class: "bio-portrait" %>
+    </div>
+
     <% if Bio.last.present? %>
       <% bio = Bio.last %>
       <% if bio.content.present? %>
@@ -14,4 +18,3 @@
     <% end %>
   </div>
 </div>
-
