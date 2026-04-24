@@ -3,23 +3,6 @@
     <%= image_tag "skies.jpeg", class: "contact-hero-image", alt: "Contact header image" %>
   </div>
   <div class="contact-container">
-    <section class="contact-form-section">
-      <%= form_with model: @contact, url: contact_path, method: :post, class: "contact-form" do |form| %>
-        <%= form.invisible_captcha :last_name %>
-        <div class="form-field">
-          <%= form.text_field :name, placeholder: "Name", class: "form-input", required: true %>
-        </div>
-        <div class="form-field">
-          <%= form.email_field :email, placeholder: "Email", class: "form-input", required: true %>
-        </div>
-        <div class="form-field">
-          <%= form.text_area :body, placeholder: "Message", class: "form-textarea", rows: 6, required: true %>
-        </div>
-        <div class="form-submit">
-          <%= form.submit "Send", class: "submit-button" %>
-        </div>
-      <% end %>
-    </section>
     <section class="contact-info">
       <div class="contact-email">
         <%= link_to "jyorkart@gmail.com", "mailto:jyorkart@gmail.com", class: "email-link" %>
